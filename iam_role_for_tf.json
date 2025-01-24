@@ -1,0 +1,32 @@
+{
+    "Version": "2012-10-17",
+    "Statement": 
+    [
+        {
+            "Effect": "Allow",
+            "Action": 
+            [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+            ],
+            "Resource": 
+            [
+                "arn:aws:s3:::terraformstatefiles-us-west-2",
+                "arn:aws:s3:::terraformstatefiles-us-west-2/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": 
+            [
+                "dynamodb:PutItem",
+                "dynamodb:GetItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable"
+            ],
+            "Resource": "arn:aws:dynamodb:us-east-1:471112683391:table/terraform-locks"
+        }
+    ]
+}
