@@ -1,4 +1,4 @@
-name: "Creating name space under given cluter name"
+name: "ClusterNamespace"
 
 on:
   push:
