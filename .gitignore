@@ -1,2 +1,6 @@
 .terraform/
-.createbackendfirst/.terraform
+terraform.tfstate
+terraform.tfstate.backup
+.createbackendfirst/terraform/
+.createbackendfirst/terraform.tfstate
+.createbackendfirst/terraform.tfstate.backup
