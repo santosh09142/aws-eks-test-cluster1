@@ -39,7 +39,7 @@ jobs:
     #   run: terraform validate
 
     - name: Plan Terraform
-      run: terraform plan -var "eks_cluster_name=$EKS_CLUSTER_NAME"
+      run: terraform plan -var "eks_cluster_name=" $EKS_CLUSTER_NAME
 
     - name: Apply Terraform
       if: github.ref == 'refs/heads/main'
