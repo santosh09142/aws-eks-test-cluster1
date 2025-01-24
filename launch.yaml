@@ -1,0 +1,55 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: test-cluster1
+  region: us-west-2
+  version: "1.28" # Add Kubernetes version
+
+nodeGroups:
+  - name: ng-1
+    minSize: 1
+    maxSize: 3
+    desiredCapacity: 1
+    instanceType: t3.medium
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+    ssh:
+      allow: true
+      publicKeyName: eks-test # Replace with your actual SSH key name
+
+# cloudWatch:
+#   clusterLogging:
+#     enableTypes: ["*"]
+
+# iam:
+#   withOIDC: true
+#   serviceAccounts:
+#     - metadata:
+#         name: cloudwatch-agent
+#         namespace: amazon-cloudwatch
+#       attachPolicyARNs:
+#         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+#       roleName: CloudWatchAgentServerRole
+
+# ...existing code...
+# addons:
+#   - name: karpenter
+#     version: latest
+#     attachPolicyARNs:
+#       - arn:aws:iam::aws:policy/AmazonEKSClusterAutoscalerPolicy
+#       - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+
+# karpenter:
+#   version: latest
+#   helm:
+#     repo: https://charts.karpenter.sh
+#     chart: karpenter
+#     release: karpenter
+#     namespace: karpenter
+#     values:
+#       clusterName: test-cluster2
+#       clusterEndpoint: https://<retrieved-cluster-endpoint>
+#       aws:
+#         defaultInstanceProfile: KarpenterNodeInstanceProfile
