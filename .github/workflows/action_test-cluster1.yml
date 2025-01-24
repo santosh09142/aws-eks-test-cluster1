@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  terraform:
+  ClusterNamespace:
     name: 'Terraform'
     runs-on: ubuntu-latest
 
