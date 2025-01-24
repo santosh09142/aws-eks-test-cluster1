@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  CLUSTER_NAME: ${{ EKS_CLUSTER_NAME }}
+  CLUSTER_NAME: $EKS_CLUSTER_NAME
 
 jobs:
   ClusterNamespace:
