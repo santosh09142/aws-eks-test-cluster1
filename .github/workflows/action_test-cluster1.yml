@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+env:
+  # EKS_CLUSTER_NAME: $EKS_CLUSTER_NAME
+
 jobs:
   ClusterNamespace:
     name: 'Terraform'
@@ -36,7 +39,7 @@ jobs:
     #   run: terraform validate
 
     - name: Plan Terraform
-      run: terraform plan -var "cluster_name=${{ EKS_CLUSTER_NAME }}"
+      run: terraform plan -var "cluster_name= $EKS_CLUSTER_NAME"
 
     - name: Apply Terraform
       if: github.ref == 'refs/heads/main'
